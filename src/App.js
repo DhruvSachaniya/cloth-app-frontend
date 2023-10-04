@@ -1,9 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Nav from "./components/Nav/Nav";
+import LoginPage from "./components/Nav/Home/StartUp";
+
 function App() {
   return (
     <>
-      <div>
-          <h1>HELLO WORLD</h1>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginPage/>}/>
+          <Route path="/Home" element={<Nav/>}/>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

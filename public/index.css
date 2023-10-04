@@ -1,3 +1,79 @@
 body {
-    background-color: black;
+    padding: 0;
+    margin: 0;
+}
+
+header li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2px 20px;
+    box-shadow: 0 1px 8px #ddd;
+}
+
+.nav-title {
+    margin-right: auto;
+    font-size: 1.5rem;
+}
+
+header a {
+    text-decoration: none;
+    color: #555;
+    transition: all 0.3s ease 0s;
+}
+
+header a:hover {
+    color: #b2dfdb;
+}
+
+.Login-back {
+    background-image: url('./images/login-back-img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+}
+
+.Login-form {
+    display: flex;
+    justify-content: space-evenly;
+    /* position: absolute; */
+    width: 90%;
+    height: 80vh;
+    border-radius: 5px;
+    background-color: transparent;
+    box-shadow: 0px 5px 10px #6e347c;
+}
+
+.Login-heading {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.Login-heading h1 {
+    font-size: 5rem;
+}
+
+.Login-heading p {
+    font-size: 2rem;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
