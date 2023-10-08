@@ -2,7 +2,7 @@ export default function Nav () {
     return(
         <>
         <header>
-            <h3 className="nav-title"><a href="/">Cloth-App</a></h3>
+            <h3 className="nav-title"><a href="/Home">Cloth-App</a></h3>
             <nav>
                 <ul>
                     <li><a href="#">YourOrder</a></li>

@@ -28,7 +28,7 @@ export default function LoginPage () {
         event.preventDefault();
 
         try {
-            const responce  =  await axios({
+            const response  =  await axios({
                 url: "/auth/Login",
                 method: "post",
                 headers: {
@@ -39,15 +39,17 @@ export default function LoginPage () {
                     password: values.password
                 })
             });
-            if(responce.status === 200) {
-                localStorage.setItem("jwt_token", responce.data.token);
-                toast.success("Login successful!");
+            if(response.data.token) {
+                localStorage.setItem("jwt_token", response.data.token);
+                toast.success(response.data.message);
+                navigate("/Home", {replace: true});
+            } else {
+                toast.error(response.data.message);
             }
             setvlaues({
                 email: "",
                 password: ""
-            })
-            navigate("/Home", {replace: true});
+            });
         } catch(error) {
             console.log(error);
         }
