@@ -1,3 +1,8 @@
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import PersonIcon from '@mui/icons-material/Person';
+import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
+import GradingIcon from '@mui/icons-material/Grading';
+
 export default function Nav () {
     return(
         <>
@@ -5,10 +10,10 @@ export default function Nav () {
             <h3 className="nav-title"><a href="/Home">Cloth-App</a></h3>
             <nav>
                 <ul>
-                    <li><a href="#">YourOrder</a></li>
-                    <li><a href="#">Wishlist</a></li>
-                    <li><a href="#">cart</a></li>
-                    <li><a href="#">Account</a></li>
+                    <li><a href="#" title='your order'><GradingIcon/></a></li>
+                    <li><a href="#" title='wishList'><FolderSpecialIcon/></a></li>
+                    <li><a href="#" title='Cart'><ShoppingBagIcon/></a></li>
+                    <li><a href="#" title='Your Account'><PersonIcon/></a></li>
                 </ul>
             </nav>
         </header>

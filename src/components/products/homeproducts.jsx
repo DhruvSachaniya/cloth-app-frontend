@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom"
 
 export default function HomeProducts() {
 
@@ -15,7 +16,6 @@ export default function HomeProducts() {
                 });
 
                 if (response.status === 200) {
-                    console.log(response.data);
                     setProducts(response.data);
                 }
             } catch (error) {
@@ -29,16 +29,18 @@ export default function HomeProducts() {
     return (
         <div className="grid-cont">
             {products.map(product => (
-                <div className="card" key={product._id}>
-                    <div className="card-header">
-                        <img src={"http://localhost:5000/"+product.fileURL} alt={product.title} />
+                    <div className="card" key={product._id}>
+                        <Link to={`/productinfo/${product._id}`}>
+                        <div className="card-header">
+                            <img src={"http://localhost:5000/" + product.fileURL} alt={product.title} />
+                        </div>
+                        <div className="card-body">
+                            <div className="card-title">{product.title}</div>
+                            <div className="card-price">${product.price}</div>
+                            <button className="card-button">Add to Cart</button>
+                        </div>
+                        </Link>
                     </div>
-                    <div className="card-body">
-                        <div className="card-title">{product.title}</div>
-                        <div className="card-price">${product.price}</div>
-                        <button className="card-button">Add to Cart</button>
-                    </div>
-                </div>
             ))}
         </div>
     );
