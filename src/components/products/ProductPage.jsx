@@ -37,11 +37,33 @@ export default function ProductPage() {
     }, [productId]);
     
     return(
-        <div>
+        <>
             <Nav/>
-            <div>
-                <h1>{product.price}</h1>
+            <div className="product-container">
+                <div className="product-card">
+                    <div className="product-head">
+                        <img src={"http://localhost:5000/"+ product.fileURL} alt={product.title} />
+                    </div>
+                    <div className="product-body">
+                        <div className="product-box">
+                            <h1 className="item-name">{product.title}</h1>
+                            <p>{product.title}</p>
+                            <hr/>
+                            <p>{product.description}</p>
+                            <p className="item-price">$ {product.price}</p>
+                        </div>
+                        <div className="item-customise">
+                            <label>Quntity</label>
+                            <br></br>
+                            <input autocomplete="on" step="step" min="1" pattern="[0-9]" type="number" disabled="" name="quantity" placeholder="Product Quantity" class="input-number" value="1"></input>
+                            <span></span>
+                        </div>
+                        <div className="item-actions">
+                            <button className="card-button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
