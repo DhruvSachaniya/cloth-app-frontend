@@ -4,6 +4,7 @@ import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
 import GradingIcon from '@mui/icons-material/Grading';
 import NightlightIcon from '@mui/icons-material/Nightlight';
 import { useState } from 'react';
+import CartWindow from './windows/cartwindow';
 
 export default function Nav() {
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -26,14 +27,7 @@ export default function Nav() {
                                 YourCart
                             </a>
                             {isMouseOverCart || isCartOpen ? (
-                                <div
-                                    className="mini-cart"
-                                    onMouseEnter={() => setIsCartOpen(true)}
-                                    onMouseLeave={() => setIsCartOpen(false)}
-                                >
-                                    <p>Your Cart Items</p>
-                                    {/* Add cart items here */}
-                                </div>
+                                <CartWindow/>
                             ) : null}
                         </li>
                         <li><a href="#" title='Your Account'><PersonIcon /></a></li>
