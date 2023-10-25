@@ -15,7 +15,6 @@ export default function CartWindow() {
             });
             if (response) {
                 setCartValues(response.data);
-                console.log(response.data);
             }
         }
         fetchCartDetails();
