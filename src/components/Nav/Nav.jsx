@@ -1,15 +1,21 @@
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import PersonIcon from '@mui/icons-material/Person';
-import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
-import GradingIcon from '@mui/icons-material/Grading';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import NightlightIcon from '@mui/icons-material/Nightlight';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import { useState } from 'react';
 import CartWindow from './windows/cartwindow';
 import WishListWindow from './windows/wishlistwindow';
 import OrderWindow from './windows/orderwindow';
 
 export default function Nav() {
-    const [isCartOpen, setIsCartOpen] = useState(false);
+    const [darkmode, setdarkmode] = useState(false);
+
+    const toggleDarkMode = () => {
+        setdarkmode(!darkmode);
+        document.body.style.backgroundColor = darkmode ? "#212529" : "transparent"
+        document.body.style.color = darkmode ? "#adb5bd" : "black";
+    };
     const [isMouseOverCart, setIsMouseOverCart] = useState(false);
     const [isMouseOverOrder, setIsMouseOverOrder] = useState(false);
     const [isMouseOverWishList, setIsMouseOverWishList] = useState(false);
@@ -19,44 +25,42 @@ export default function Nav() {
                 <h3 className="nav-title"><a href="/Home">Cloth-App</a></h3>
                 <nav>
                     <ul>
-                        <li><NightlightIcon/></li>
+                        <li onClick={toggleDarkMode}
+                        >{darkmode ? <DarkModeOutlinedIcon/> : <NightlightIcon/>}</li>
                         <li 
-                            className='cart-icon'
                             onMouseOver={() => setIsMouseOverOrder(true)}
                             onMouseOut={() => setIsMouseOverOrder(false)}
                         >
                             <a href="#" title='your order'>
-                                <GradingIcon />
+                                Orders
                             </a>
                             {isMouseOverOrder ? (
                                 <OrderWindow/>
                             ): null}
                         </li>
                         <li
-                            className='cart-icon'
                             onMouseOver={() => setIsMouseOverWishList(true)}
                             onMouseOut={() => setIsMouseOverWishList(false)}
                         >
                             <a href="#" title='wishList'>
-                                <FolderSpecialIcon />
+                                <FavoriteBorderOutlinedIcon/>
                             </a>
                             {isMouseOverWishList ? (
                                 <WishListWindow/>
                             ): null}
                         </li>
                         <li
-                            className="cart-icon"
                             onMouseOver={() => setIsMouseOverCart(true)}
                             onMouseOut={() => setIsMouseOverCart(false)}
                         >
                             <a href="#" title="Cart">
-                                YourCart
+                                <ShoppingCartOutlinedIcon/>
                             </a>
-                            {isMouseOverCart || isCartOpen ? (
+                            {isMouseOverCart ? (
                                 <CartWindow/>
                             ) : null}
                         </li>
-                        <li><a href="#" title='Your Account'><PersonIcon /></a></li>
+                        <li><a href="#" title='Your Account'><PersonIcon/></a></li>
                     </ul>
                 </nav>
             </header>

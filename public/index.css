@@ -8,6 +8,7 @@ header li {
     list-style: none;
     display: inline-block;
     padding: 0 20px;
+    cursor: pointer;
 }
 
 header {
@@ -231,7 +232,7 @@ header a:hover {
 .mini-cart {
     display: block;
     position: absolute;
-    top: 100%; 
+    top: 70%; 
     right: 50px;
     background-color: #fff; 
     width: 300px;
@@ -241,6 +242,8 @@ header a:hover {
     z-index: 1; 
     padding: 10px;
     animation: popper-module--pop-in--1Pg2a 100ms cubic-bezier(.2,0,.38,.9) forwards;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .mini-cart p {
