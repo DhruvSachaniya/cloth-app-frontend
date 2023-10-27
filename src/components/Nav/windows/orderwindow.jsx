@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 
 export default function OrderWindow () {
     const [ getData, setData ] = useState(null);
+
+    const mystyle = {
+        right: "230px"
+    };
     
     useEffect(() => {
         async function fetchOrderDetails () {
@@ -23,7 +27,7 @@ export default function OrderWindow () {
     }, []);
     
     return(
-        <div className="mini-cart">
+        <div className="mini-cart" style={mystyle}>
         {getData ? (
             <>
             {!getData.meassage ? (

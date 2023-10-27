@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 export default function CartWindow() {
     const [getCartValues, setCartValues] = useState(null);
 
+    const mystyle = {
+        right: "100px"
+    };
+
     useEffect(() => {
         async function fetchCartDetails() {
             const response = await axios({
@@ -21,7 +25,7 @@ export default function CartWindow() {
     }, []);
 
     return (
-        <div className="mini-cart">
+        <div className="mini-cart" style={mystyle}>
             {getCartValues ? (
                 <>
                     <p>Your Cart</p>

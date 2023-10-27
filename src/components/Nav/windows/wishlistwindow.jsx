@@ -4,6 +4,10 @@ import { useEffect, useState } from "react"
 export default function WishListWindow() {
     const [getData, setData] = useState(null);
 
+    const mystyle = {
+        right: "170px"
+      };
+
     useEffect(() => {
         async function fetchWishList() {
             const response = await axios({
@@ -22,7 +26,7 @@ export default function WishListWindow() {
     }, []);
 
     return (
-        <div className="mini-cart">
+        <div className="mini-cart" style={mystyle}>
             {getData ? (
                 <>
                     <p>your WishList</p>

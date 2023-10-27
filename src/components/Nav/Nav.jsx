@@ -7,6 +7,7 @@ import { useState } from 'react';
 import CartWindow from './windows/cartwindow';
 import WishListWindow from './windows/wishlistwindow';
 import OrderWindow from './windows/orderwindow';
+import AccountWindow from './Account/accountwindow';
 
 export default function Nav() {
     const [darkmode, setdarkmode] = useState(false);
@@ -19,6 +20,7 @@ export default function Nav() {
     const [isMouseOverCart, setIsMouseOverCart] = useState(false);
     const [isMouseOverOrder, setIsMouseOverOrder] = useState(false);
     const [isMouseOverWishList, setIsMouseOverWishList] = useState(false);
+    const [isMOuseOverProfile, setIsMouseOverProfile] = useState(false);
     return (
         <>
             <header>
@@ -60,7 +62,17 @@ export default function Nav() {
                                 <CartWindow/>
                             ) : null}
                         </li>
-                        <li><a href="#" title='Your Account'><PersonIcon/></a></li>
+                        <li
+                            onMouseOver={() => setIsMouseOverProfile(true)}
+                            onMouseOut={() => setIsMouseOverProfile(false)}
+                        >
+                            <a href="#" title='Your Account'>
+                                <PersonIcon/>
+                            </a>
+                            {isMOuseOverProfile ? (
+                                <AccountWindow/>
+                            ): null}
+                        </li>
                     </ul>
                 </nav>
             </header>
