@@ -4,6 +4,7 @@ import RegisterPage from "./components/Landing/Register";
 import { ToastContainer } from 'react-toastify';
 import HomePage from "./components/Home/home";
 import ProductPage from "./components/products/ProductPage";
+import CartPage from "./components/Cart/CartHomePage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/Register" element={<RegisterPage />} />
           <Route path="/Home" element={<HomePage />} />
           <Route path="/productinfo/:productId" element={<ProductPage/>}/>
+          <Route path="/cart" element={<CartPage/>} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

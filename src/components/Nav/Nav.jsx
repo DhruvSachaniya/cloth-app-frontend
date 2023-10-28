@@ -55,7 +55,7 @@ export default function Nav() {
                             onMouseOver={() => setIsMouseOverCart(true)}
                             onMouseOut={() => setIsMouseOverCart(false)}
                         >
-                            <a href="#" title="Cart">
+                            <a href="/cart" title="Cart">
                                 <ShoppingCartOutlinedIcon/>
                             </a>
                             {isMouseOverCart ? (
