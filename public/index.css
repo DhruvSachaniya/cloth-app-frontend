@@ -339,8 +339,8 @@ header a:hover {
 
 .cart-img {
     padding: 10px;
-    width: 80%; 
-    height: 80%;
+    width: 20%; 
+    height: 20%;
     vertical-align: middle;
     object-fit: cover
 }

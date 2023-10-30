@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 export default function CartProductPage() {
 
     const [GetData, SetData] = useState(null);
+    const [GetProductCart, SetProductCart] = useState([]);
 
     const mystyle = {
         padding: "10px",
@@ -13,6 +14,11 @@ export default function CartProductPage() {
         alignItems: "center",       
         justifyItems: "center",    
     };
+
+    const img_style = {
+        height: "200px"
+    };
+
     
 
     useEffect(() => {
@@ -28,7 +34,24 @@ export default function CartProductPage() {
                 if (response) {
                     if (response.status === 200) {
                         SetData(response.data);
-                        console.log(GetData);
+                        
+                        const response_2 = GetData.items.map((productId) => {
+                            return axios({
+                                url: `/productinfo/${productId}`,
+                                method: "get",
+                                headers: {
+                                    "Authorization": localStorage.getItem("jwt_token")
+                                }
+                            });
+                        });
+                        Promise.all(response_2)
+                            .then((ProductResponse) => {
+                                const productData = ProductResponse.map((res) => res.data);
+                                SetProductCart(productData);
+                            })
+                            .catch((error) => {
+                                toast.error(error)
+                            });
                     }
                 }
             }
@@ -36,7 +59,7 @@ export default function CartProductPage() {
         } catch (error) {
             toast.error(error);
         }
-    }, []);
+    }, [GetData]);
 
 
     return (
@@ -45,12 +68,14 @@ export default function CartProductPage() {
             <div className="cart-h1">
                 <h2>Shopping Cart</h2>
                 <hr />
-                {GetData.items.map((productId) => (
-                <div className="cart-grid" key={productId}>
+                {GetProductCart.map((product, index) => (
+                <div className="cart-grid" key={GetData.items[index]}>
                     <div className="cart-img">
-                        <img></img>
+                        <img style={img_style} src={"http://localhost:5000/"+ product.fileURL} alt={product.title} />
                     </div>
-                    <div>Id: {productId}</div>
+                    <div>
+                        <h1>{product.title}</h1>
+                    </div>
                 </div>
                 ))}
             </div>
