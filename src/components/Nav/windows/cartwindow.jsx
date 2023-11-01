@@ -26,7 +26,7 @@ export default function CartWindow() {
 
     return (
         <div className="mini-cart" style={mystyle}>
-            {getCartValues ? (
+            {getCartValues && getCartValues.items ? (
                 <>
                     <p>Your Cart</p>
                     <ul>
@@ -36,7 +36,7 @@ export default function CartWindow() {
                             </li>
                         ))}
                     </ul>
-                    <p>Subtotal: ${getCartValues.subtotal}</p>
+                    <p>Subtotal: ${Math.floor(getCartValues.subtotal)}</p>
                 </>
             ) : (
                 <p>Your cart is empty.</p>
