@@ -44,7 +44,7 @@ export default function Nav() {
                             onMouseOver={() => setIsMouseOverWishList(true)}
                             onMouseOut={() => setIsMouseOverWishList(false)}
                         >
-                            <a href="#" title='wishList'>
+                            <a href="/wishlist" title='wishList'>
                                 <FavoriteBorderOutlinedIcon/>
                             </a>
                             {isMouseOverWishList ? (

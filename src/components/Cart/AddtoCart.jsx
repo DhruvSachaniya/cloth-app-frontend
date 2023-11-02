@@ -2,6 +2,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 export default function AddToCart (props) {
+    
+    const mystyle = {
+        marginTop: "10px"
+    };
+    
     return(
         <>
             <button className="card-button"
@@ -18,10 +23,10 @@ export default function AddToCart (props) {
                     })
                 })
                 .then((res) => {
-                    toast.success(res);
+                    toast.success("Added to Cart!");
                 })
             }}
-            type="submit">Add to Cart</button>
+            type="submit" style={mystyle}>Add to Cart</button>
         </>
     );
 }

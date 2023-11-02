@@ -17,7 +17,9 @@ export default function DeleteCartItems (props) {
                 })
             })
             .then((res) => {
-                toast.success(res);
+                if(res) {
+                    toast.success("Remove from Cart!");
+                }
             })
         }}
         type="submit">Delete</button>

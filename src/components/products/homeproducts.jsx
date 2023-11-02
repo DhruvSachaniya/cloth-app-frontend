@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"
+import AddToCart from "../Cart/AddtoCart";
 
 export default function HomeProducts() {
 
@@ -34,12 +35,13 @@ export default function HomeProducts() {
                         <div className="card-header">
                             <img src={"http://localhost:5000/" + product.fileURL} alt={product.title} />
                         </div>
+                        </Link>
                         <div className="card-body">
                             <div className="card-title">{product.title}</div>
                             <div className="card-price">${product.price}</div>
-                            <button className="card-button">Add to Cart</button>
+                            {/* <button className="card-button">Add to Cart</button> */}
+                            <AddToCart id={product._id}/>
                         </div>
-                        </Link>
                     </div>
             ))}
         </div>
