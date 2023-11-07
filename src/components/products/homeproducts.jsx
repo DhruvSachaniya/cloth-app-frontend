@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"
 import AddToCart from "../Cart/AddtoCart";
+import FavoriteBorderOutlined from "@mui/icons-material/FavoriteBorderOutlined";
+import { toast } from "react-toastify";
 
 export default function HomeProducts() {
 
@@ -30,19 +32,41 @@ export default function HomeProducts() {
     return (
         <div className="grid-cont">
             {products.map(product => (
-                    <div className="card" key={product._id}>
+                <div className="card" key={product._id}>
+                    <div className="card-header">
                         <Link to={`/productinfo/${product._id}`}>
-                        <div className="card-header">
-                            <img src={"http://localhost:5000/" + product.fileURL} alt={product.title} />
-                        </div>
+                            <div className="card-img">
+                                <img src={"http://localhost:5000/" + product.fileURL} alt={product.title} />
+                            </div>
                         </Link>
-                        <div className="card-body">
-                            <div className="card-title">{product.title}</div>
-                            <div className="card-price">${product.price}</div>
-                            {/* <button className="card-button">Add to Cart</button> */}
-                            <AddToCart id={product._id}/>
+                        <div className="card-wishlist">
+                            <div className="card-wishlit-2" onClick={() => {
+                                axios({
+                                    url: "/wishlist",
+                                    method: "post",
+                                    headers: {
+                                        "Authorization": localStorage.getItem("jwt_token"),
+                                        "Content-Type": "application/json"
+                                    },
+                                    data: JSON.stringify({
+                                        productid: product._id
+                                    })
+                                })
+                                    .then((res) => {
+                                        toast.success("Added to Wishlist!");
+                                    })
+                            }}>
+                                <FavoriteBorderOutlined />
+                            </div>
                         </div>
                     </div>
+                    <div className="card-body">
+                        <div className="card-title">{product.title}</div>
+                        <div className="card-price">${product.price}</div>
+                        {/* <button className="card-button">Add to Cart</button> */}
+                        <AddToCart id={product._id} />
+                    </div>
+                </div>
             ))}
         </div>
     );

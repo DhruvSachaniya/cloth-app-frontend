@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import AddToCart from "../Cart/AddtoCart";
+import DeleteWishlistItems from "./WishListDelete";
 
 export default function WishListProductPage() {
 
@@ -78,7 +79,7 @@ export default function WishListProductPage() {
                                     <h1 className="item-name">{product.title}</h1>
                                     <p>{product.description}</p>
                                     <p className="item-price">$ {product.price}</p>
-                                    <AddToCart id={GetData.items[index]}/>
+                                    <AddToCart id={GetData.items[index]}/> <DeleteWishlistItems id={GetData.items[index]}/>
                                 </div>
                             </div>
                         ))) : null}
