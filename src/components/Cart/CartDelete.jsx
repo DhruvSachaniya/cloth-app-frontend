@@ -19,6 +19,7 @@ export default function DeleteCartItems (props) {
             .then((res) => {
                 if(res) {
                     toast.success("Remove from Cart!");
+                    window.location.reload(true);
                 }
             })
         }}

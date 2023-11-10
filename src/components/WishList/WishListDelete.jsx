@@ -19,6 +19,7 @@ export default function DeleteWishlistItems (props) {
             .then((res) => {
                 if(res) {
                 toast.success("remove Wishlit Item!");
+                window.location.reload(true);
             }
             })
         }}

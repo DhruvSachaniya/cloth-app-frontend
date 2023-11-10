@@ -33,7 +33,7 @@ export default function Nav() {
                             onMouseOver={() => setIsMouseOverOrder(true)}
                             onMouseOut={() => setIsMouseOverOrder(false)}
                         >
-                            <a href="#" title='your order'>
+                            <a href="/order" title='your order'>
                                 Orders
                             </a>
                             {isMouseOverOrder ? (

@@ -17,7 +17,7 @@ export default function WishListWindow() {
                     "Authorization": localStorage.getItem("jwt_token")
                 }
             })
-            if (response.status === 200) {
+            if (response) {
                 setData(response.data);
             }
         }
@@ -27,7 +27,7 @@ export default function WishListWindow() {
 
     return (
         <div className="mini-cart" style={mystyle}>
-            {getData ? (
+            {getData && getData.items ? (
                 <>
                     <p>your WishList</p>
                     <ul>

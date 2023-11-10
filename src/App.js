@@ -6,6 +6,7 @@ import HomePage from "./components/Home/home";
 import ProductPage from "./components/products/ProductPage";
 import CartPage from "./components/Cart/CartHomePage";
 import WishListPage from "./components/WishList/WIshListHomePage";
+import OrdersPage from "./components/Order/orderHomepage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/productinfo/:productId" element={<ProductPage/>}/>
           <Route path="/cart" element={<CartPage/>} />
           <Route path="/wishlist" element={<WishListPage/>} />
+          <Route path="/order" element={<OrdersPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer
