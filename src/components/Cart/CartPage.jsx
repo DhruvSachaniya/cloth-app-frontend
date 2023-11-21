@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import DeleteCartItems from "./CartDelete";
+import Checkout from "../Checkout/Checkout";
 
 export default function CartProductPage() {
     const [GetData, SetData] = useState(null);
@@ -89,7 +90,7 @@ export default function CartProductPage() {
                         {GetData && GetData.items ? (
                             <>
                                 <h3>Subtotal({GetData.items.length} items): ${Math.floor(GetData.subtotal)}</h3>
-                                <button>Checkout</button>
+                                <Checkout/>
                             </>
                         ) : (
                             <h3>Subtotal: $0.00</h3>

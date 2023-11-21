@@ -7,6 +7,7 @@ import ProductPage from "./components/products/ProductPage";
 import CartPage from "./components/Cart/CartHomePage";
 import WishListPage from "./components/WishList/WIshListHomePage";
 import OrdersPage from "./components/Order/orderHomepage";
+import CheckoutHomePage from "./components/Checkout/CheckoutHome";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/cart" element={<CartPage/>} />
           <Route path="/wishlist" element={<WishListPage/>} />
           <Route path="/order" element={<OrdersPage />} />
+          <Route path="/checkout" element={<CheckoutHomePage/>} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

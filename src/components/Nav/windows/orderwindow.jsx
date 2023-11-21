@@ -19,7 +19,6 @@ export default function OrderWindow () {
             })
             if(response.status === 200) {
                 setData(response.data);
-                console.log(response.data);
             }
         }
 
