@@ -57,7 +57,7 @@ export default function LoginPage() {
         <div class="bg-0">
             <div class="bg-1">
                 <div class="bg-img">
-                    <img src="D:/Cloth-App-Frontend/cloth-frontend/public/shopping-image-2.png" alt="img" />
+                    <img src={"/images/shopping-image-2.png"} alt="img" />
                 </div>
                 <div class="bg-body">
                     <div>
